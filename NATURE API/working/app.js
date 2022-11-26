@@ -22,6 +22,7 @@ const tours = JSON.parse(
 
 // using the middleware for json in express
 app.use(express.json());
+// middleware is a function that can simply modify the incoming request
 
 app.get('/api/v1/tours', (req, res) => {
     res
