@@ -76,6 +76,18 @@ app.get('/api/v1/tours/:id', (req, res) => {
     console.log(req.params);
     // Note :- Params value is in string  type cast it
     const id = req.params.id * 1;
+
+    // changing the status code to 404 from 200
+
+    if (id > tours.length) {
+        return res.status(404).json(
+            {
+                'status': 'failed',
+                'message': 'something went wrong'
+            }
+        );
+    }
+
     // .find() is a simple js function
     // simply find that value which has a id of :id params.
     const tour = tours.find(el => el.id === id);
