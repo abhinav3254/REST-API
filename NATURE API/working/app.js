@@ -68,6 +68,47 @@ app.post('/api/v1/tours', (req, res) => {
     // we can't send two resp to the client
 });
 
+
+// find value using the id
+
+// :id can be replaced by aything :var or :x etc
+app.get('/api/v1/tours/:id', (req, res) => {
+    console.log(req.params);
+    // Note :- Params value is in string  type cast it
+    const id = req.params.id * 1;
+    // .find() is a simple js function
+    // simply find that value which has a id of :id params.
+    const tour = tours.find(el => el.id === id);
+    res
+        .status(200)
+        .json(
+            {
+                status: "success",
+                data: {
+                    tour
+                }
+            }
+        )
+});
+
+/*
+
+we can do multiple
+
+app.get('/api/v1/tours/:id/:x/:var', (req, res) => {
+    console.log(req.params);
+    res
+        .status(200)
+        .json(
+            {
+                status: "success"
+            }
+        )
+});
+
+*/
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}....`);
 });
