@@ -1,0 +1,6 @@
+When an API is considered as REST API
+
+1. separate API into logical resources.
+2. Expose structured resource-based URLs.
+3. use HTTP methods(verbs)
+4. Be stateless.
