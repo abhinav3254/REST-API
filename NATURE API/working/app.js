@@ -43,7 +43,9 @@ app.get('/api/v1/tours', (req, res) => {
 // working with the post method
 
 app.post('/api/v1/tours', (req, res) => {
-
+    console.log(req.body);
+    // to get this response req.body as in json we used app.use(express.json())
+    res.send('Done');
 });
 
 app.listen(PORT, () => {
