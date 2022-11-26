@@ -45,7 +45,27 @@ app.get('/api/v1/tours', (req, res) => {
 app.post('/api/v1/tours', (req, res) => {
     console.log(req.body);
     // to get this response req.body as in json we used app.use(express.json())
-    res.send('Done');
+
+    // Now note down here we have no database connected right now so we are going to take the last id from the json file which is inside of dev-data and we're going to add 1 to the previous json id.
+
+    // this is the new id which we going to use
+    const newID = tours[tours.length - 1].id + 1;
+
+    // This allow us to create new object and merge them
+    const newTour = Object.assign({ id: newID }, req.body)
+
+    tours.push(newTour);
+    fs.writeFile('C:\\Users\\abhin\\Desktop\\REST-API\\NATURE API\\dev-data', JSON.stringify(tours), err => {
+        res.status(201).json({
+            status: "success",
+            data: {
+                tour: newTour
+            }
+        });
+    });
+
+    // res.send('Done');
+    // we can't send two resp to the client
 });
 
 app.listen(PORT, () => {
