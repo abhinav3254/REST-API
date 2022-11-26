@@ -16,3 +16,17 @@ assume our api is of tour and travels :- it will have
         c. hotel
         d. resturant
         etc there will be some other features also available
+    example : https://www.abhinav.com/addNEWTOUR
+    here this whole is called URL and the addNEWTOUR is called as end point 
+
+Note down this disturbs the 3 point which is use HTTP methods so to overcome this thing we have to use these
+/addNEWTOUR  --> POST/ tours  no id will be given
+/ getTours  --> GET /tours  (GET is method)
+
+this will return all the data from the database so if we want some specific data then we have to put id at the end
+
+GET /tours/7
+7 is the tour id
+
+FOR update we use PUT or PATCH method
+FOR delete we use DELETE method
