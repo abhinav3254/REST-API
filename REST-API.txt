@@ -4,3 +4,15 @@ When an API is considered as REST API
 2. Expose structured resource-based URLs.
 3. use HTTP methods(verbs)
 4. Be stateless.
+
+
+
+explaination of each points in in-depth
+
+1. meaning :- This means that we must separate the data i.e. - category
+assume our api is of tour and travels :- it will have
+        a. destination
+        b. cost
+        c. hotel
+        d. resturant
+        etc there will be some other features also available
