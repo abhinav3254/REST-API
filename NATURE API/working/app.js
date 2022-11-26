@@ -20,6 +20,9 @@ const tours = JSON.parse(
     fs.readFileSync(`${dirPath}/data/tours-simple.json`)
 );
 
+// using the middleware for json in express
+app.use(express.json());
+
 app.get('/api/v1/tours', (req, res) => {
     res
         .status(200)
@@ -34,6 +37,12 @@ app.get('/api/v1/tours', (req, res) => {
                 }
             }
         );
+});
+
+// working with the post method
+
+app.post('/api/v1/tours', (req, res) => {
+
 });
 
 app.listen(PORT, () => {
