@@ -15,7 +15,6 @@ const PORT = 4500;
 // let start
 
 // read the dev-data/data directory
-
 const dirPath = path.join('C:\\Users\\abhin\\Desktop\\REST-API\\NATURE API\\dev-data');
 const tours = JSON.parse(
     fs.readFileSync(`${dirPath}/data/tours-simple.json`)
