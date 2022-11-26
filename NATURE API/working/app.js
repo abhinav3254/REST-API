@@ -26,6 +26,7 @@ app.get('/api/v1/tours', (req, res) => {
         .json(
             {
                 status: 'success',
+                results: tours.length, // --> here calculating the length of the array since our json is in the format of array
                 data: {
                     // tours:tours
                     // this upper way is also correct
