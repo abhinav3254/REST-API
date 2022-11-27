@@ -121,6 +121,34 @@ app.get('/api/v1/tours/:id/:x/:var', (req, res) => {
 */
 
 
+// Update data or PATCH Request
+
+app.patch('api/v1/tours/:id', (req, res) => {
+
+    const id = req.params.id * 1;
+
+    // changing the status code to 404 from 200
+
+    if (id > tours.length) {
+        return res.status(404).json(
+            {
+                'status': 'fail',
+                'message': 'Invalid ID'
+            }
+        );
+    }
+
+
+    res
+        .status(200)
+        .json({
+            status: 'success',
+            data: {
+                tour: '<Updated tour here....>'
+            }
+        });
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}....`);
 });
