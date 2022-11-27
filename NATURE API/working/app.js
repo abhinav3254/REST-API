@@ -27,6 +27,17 @@ app.use(express.json());  //-> This is a middle ware
 // now creating our own middleware
 
 
+app.use((req, res, next) => {
+    console.log('Hello from the middleware 👋👋');
+    // we have to call req and res else we will be stuck
+    next();
+});
+// Hit a request and then
+// This will be printed in the terminal
+
+// This middle ware is applied to each and every request
+
+
 app.get('/api/v1/tours', (req, res) => {
     res
         .status(200)
@@ -90,6 +101,16 @@ app.get('/api/v1/tours/:id', (req, res) => {
             }
         );
     }
+
+
+    // for middleware 
+    /*
+    
+    Note If we put the middleware here then all the requests or route below it can only access them
+    above one can't access them
+    
+    
+    */
 
     // .find() is a simple js function
     // simply find that value which has a id of :id params.
