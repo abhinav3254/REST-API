@@ -38,12 +38,25 @@ app.use((req, res, next) => {
 // This middle ware is applied to each and every request
 
 
+
+
+
+// creating a new middleware
+
+app.use((req, res, next) => {
+    req.requestTime = new Date().toISOString();
+    next();
+});
+
+
 app.get('/api/v1/tours', (req, res) => {
+    console.log(req.requestTime);
     res
         .status(200)
         .json(
             {
                 status: 'success',
+                requestedAt: req.requestTime,
                 results: tours.length, // --> here calculating the length of the array since our json is in the format of array
                 data: {
                     // tours:tours
